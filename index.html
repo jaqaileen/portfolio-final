@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAQ AILEEN PORTFOLIO</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="../assets/JA logomark.svg" type="image/x-icon" />
-    
+    <link href="./assets/JA logomark.svg" type="image/x-icon" rel="icon" />
 </head>
+
 <body>
     <nav>
         <div class="nav-left fade-in">
             <a href="./index.html">Jaq Aileen</a>
         </div>
+        <button class="mobile-menu-button">☰</button>
         <div class="nav-center fade-in">
-            <a href="./works/works.html">Works</a>
-            <a href="./experiments/experiments.html">Experiments</a>
+            <a href="./works.html">Work</a>
+            <a href="./experiments.html">Experiments</a>
         </div>
         <div class="nav-right fade-in">
-            <a href="./about/about.html">About</a>
+            <a href="./about.html">About</a>
         </div>
     </nav>
     <main>
@@ -34,25 +35,25 @@
                 <div class="image-container branding-container" id="branding-slideshow">
                     <img src="./assets/bumi logo symbol copy.svg" alt="">
                 </div>
-                <a href="../works/works.html?filter=branding"><strong>branding,</strong></a> <sup>(1)</sup> 
+                <a href="./works.html?filter=branding"><strong>branding,</strong></a> <sup>(1)</sup> 
             </span>
             <span>
                 <div class="image-container book-container" id="books-slideshow">
                     <img src="./assets/book1.jpg" alt="">
                 </div>
-                <a href="../works/works.html?filter=books"><strong>making books,</strong></a><sup>(2)</sup>
+                <a href="./works.html?filter=books"><strong>making books,</strong></a><sup>(2)</sup>
                 and 
                 <div class="image-container poster-container" >
                     <img src="./assets/microplastics posts copy.png" alt="">
                 </div>
-                <a href="../works/works.html?filter=posters"><strong>posters.</strong></a> <sup>(3)</sup>
+                <a href="./works.html?filter=posters"><strong>posters.</strong></a> <sup>(3)</sup>
             </span>            
         </div>
     </main>
     <footer>
         <div class="footer-container fade-in">
         <div class="contact-footer fade-in">
-            <p>(Contact)</p>
+            <p><strong>(Contact)</strong></p>
             <p>
                 <em>Email:</em><br>
                 <a href="mailto:jaqaileen@gmail.com">jaqaileen@gmail.com</a>
@@ -134,7 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Change image every second (1000ms)
     setInterval(updateImage, 1000);
 });
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector("nav");
+        const menuButton = document.querySelector(".mobile-menu-button");
 
+        menuButton.addEventListener("click", () => {
+            nav.classList.toggle("mobile-menu-open");
+        });
+    });
       </script>
 </body>
 </html>

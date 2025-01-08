@@ -59,7 +59,6 @@ body {
 
 nav {
     display: block;
-    /* Ensure elements are visible */
     visibility: visible;
     position: fixed;
     text-decoration: none;
@@ -72,6 +71,7 @@ nav {
     padding-top: 20px;
     z-index: 1000;
 }
+
 
 nav a {
     text-decoration: none;
@@ -102,20 +102,120 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.mobile-menu-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+}
+
+@media (max-width: 768px) {
+    .nav-right {
+        padding-top: 56px;
+        /* Ensure spacing below `Experiments` */
+        z-index: 100;
+    }
+
+    .nav-center,
+    .nav-right {
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 100%;
+        top: 80px;
+        position: absolute;
+        padding-left: 0px;
+    }
+
+    nav.mobile-menu-open .nav-center,
+    nav.mobile-menu-open .nav-right {
+        display: flex;
+        z-index: 1001;
+    }
+
+
+    .mobile-menu-button {
+        display: block;
+    }
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+
 .logo-container {
     display: flex;
-    margin-bottom: 40px;
-    width: auto;
-    margin-top: 12%;
-    display: flex;
-    width: auto;
-    text-align: center;
+    /* Keeps it flexible */
     justify-content: center;
+    /* Centers the content horizontally */
+    align-items: center;
+    /* Centers the content vertically */
+    text-align: center;
+    /* Centers text within */
+    width: 100%;
+    /* Ensures the container takes full width */
+    max-width: 100%;
+    /* Prevents overflow */
+    padding: 20px;
+    /* Adds some space around the container */
+    margin: 20px auto;
+    /* Centers the container with automatic margins */
 }
+
+.logo-container img {
+    max-width: 100%;
+    /* Ensures the image scales down to fit smaller screens */
+    height: auto;
+    /* Maintains the aspect ratio */
+    border-radius: 5px;
+    /* Keeps the rounded edges */
+    object-fit: contain;
+    /* Ensures the image doesn't stretch */
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        margin-top: 10%;
+        /* Adjusts the spacing for smaller screens */
+        margin-bottom: 20px;
+        /* Reduces bottom margin for tighter layouts */
+        padding: 10px;
+        /* Reduces padding */
+    }
+
+    .logo-container img {
+        max-width: 55%;
+        /* Reduces the size of the logo for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        margin-top: 8%;
+        /* Further adjusts top spacing */
+        margin-bottom: 15px;
+        /* Tightens bottom spacing */
+    }
+
+    .logo-container img {
+        max-width: 60%;
+        /* Makes the logo even smaller for tiny screens */
+    }
+}
+
 
 .description {
     margin-top: 20px;
-    font-size: 50px;
+    font-size: 40px;
     font-family: tobias, serif;
 }
 
@@ -141,22 +241,6 @@ a:hover {
     text-decoration: underline;
 }
 
-
-/* .description span img {
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    margin: 0 5px;
-}
-
-.description span::after {
-    content: '';
-    display: block;
-    margin: 10px auto;
-    width: 50px;
-    border-bottom: 1px solid #232323;
-} */
-
 .image-container {
     display: inline-block;
     vertical-align: middle;
@@ -174,7 +258,6 @@ a:hover {
     transition: opacity 0.5s ease-in-out;
 }
 
-
 .branding-container {
     width: 125px;
     height: 65px;
@@ -186,8 +269,6 @@ a:hover {
 }
 
 .book-container {
-    width: 105px;
-    height: 105px;
     width: 90px;
     height: 105px;
 }
@@ -216,31 +297,69 @@ a:hover {
 
 }
 
+@media (max-width: 760px) {
+    .description {
+        margin-top: 20px;
+        font-size: 30px;
+        font-family: tobias, serif;
+    }
+}
+
+@media (max-width: 480px) {
+    .description {
+        margin-top: 20px;
+        line-height: 60px;
+        font-size: 5.5vw;
+        font-family: tobias, serif;
+    }
+
+    .branding-container {
+        width: 104px;
+        height: 54px;
+    }
+
+    .poster-container {
+        width: 87.5px;
+        height: 87.5px;
+    }
+
+    .book-container {
+        width: 75px;
+        height: 87.5px;
+    }
+}
+
 footer {
-    position: absolute;
-    top: 105%;
-    left: 95%;
-    font-size: 18px;
-    padding-bottom: 5%;
-    margin-bottom: 40px;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    /* Enables shifting using top */
+    top: 2%;
 }
 
 .footer-container {
-    position: absolute;
-    right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .contact-footer {
     text-align: left;
     font-family: tobias, serif;
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 2;
     margin-bottom: 40px;
     color: #232323;
 }
 
 .contact-footer p {
-    margin: 0 0 10px;
+    margin: 0 0 0 30px;
 }
 
 .contact-footer a {
@@ -269,68 +388,6 @@ footer {
     right: 10px;
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-left,
-    .nav-center,
-    .nav-right {
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .logo-container {
-        margin-top: 15%;
-    }
-
-    .description {
-        font-size: 16px;
-    }
-
-    .image-container {
-        width: 60px;
-        height: 60px;
-    }
-
-    footer {
-        font-size: 12px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        padding: 10px 5%;
-    }
-
-    nav a {
-        font-size: 14px;
-        margin: 0 5px;
-    }
-
-    .logo-container {
-        margin-top: 20%;
-    }
-
-    .description {
-        font-size: 14px;
-        padding: 0 3%;
-    }
-
-    .image-container {
-        width: 50px;
-        height: 50px;
-    }
-
-    footer {
-        font-size: 10px;
-    }
-}
-
 
 /* works */
 .w-layout-hflex {
@@ -344,7 +401,8 @@ footer {
     display: flex;
     padding-left: 5%;
     align-items: left;
-    position: relative
+    position: relative;
+    padding-top: 10%
 }
 
 .container {
@@ -353,15 +411,14 @@ footer {
     align-self: stretch;
     width: 100vw;
     max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    position: relative
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 h1 {
     text-align: left;
-    padding-top: 10%;
     font-family: tobias, serif;
     font-weight: bold;
     font-size: 80px;
@@ -379,6 +436,80 @@ h2 {
     line-height: 1.5;
     color: #232323;
 }
+
+.h2-container {
+    width: 65%;
+    /* Default for larger screens */
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    justify-content: flex-start;
+    /* Align items to the left */
+    align-items: flex-start;
+    /* Align items vertically at the top-left corner */
+    text-align: left;
+    /* Align text inside the container */
+    padding-left: 1.5%;
+    padding-bottom: 18%;
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 70px;
+        /* Reduce font size */
+    }
+
+    h2 {
+        font-size: 37px;
+        /* Reduce font size */
+        padding-top: 8%;
+        /* Adjust spacing */
+    }
+
+    .h2-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 60px;
+        /* Reduce font size */
+    }
+
+    h2 {
+        font-size: 30px;
+        /* Reduce font size */
+        padding-top: 8%;
+        /* Adjust spacing */
+    }
+
+    .h2-container {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+}
+
+/* Media Query for Small Screens (Mobile devices) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 45px;
+        padding-top: 15%;
+    }
+
+    h2 {
+        font-size: 25px;
+        /* Further reduce font size */
+        padding-top: 8%;
+        /* Adjust spacing */
+    }
+
+    .h2-container {
+        width: 100%;
+        /* Full width for mobile */
+    }
+}
+
 
 h3 {
     padding-top: 5%;
@@ -753,7 +884,8 @@ p {
 }
 
 .modal-item {
-    padding: 17px var(--padding--main) 24px; /* Corrected spacing syntax */
+    padding: 17px var(--padding--main) 24px;
+    /* Corrected spacing syntax */
     background-color: white;
     pointer-events: auto;
     flex-direction: column;
@@ -812,7 +944,7 @@ p {
 
 .modal-main {
     position: relative;
-    flex-direction: column; 
+    flex-direction: column;
     flex: 1;
     display: flex;
 }
@@ -829,14 +961,16 @@ p {
     justify-content: flex-start;
 }
 
-.modal-more-text, .modal-more-texts {
+.modal-more-text,
+.modal-more-texts {
     display: flex;
     flex-direction: column;
     flex: 1;
     align-items: flex-start;
 }
 
-.modal-image-column, .modal-text-column {
+.modal-image-column,
+.modal-text-column {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -924,8 +1058,10 @@ p {
 
 .modal-text-wrapper {
     display: flex;
-    flex-direction: column; /* Stack text items vertically */
-    gap: 24px; /* Space between text items */
+    flex-direction: column;
+    /* Stack text items vertically */
+    gap: 24px;
+    /* Space between text items */
 }
 
 .modal-title-wrapper {
@@ -939,9 +1075,9 @@ p {
 
 
 .modal-navigation {
-    position: fixed; /* Ensures the element stays in place while scrolling */
-    top: 50%; /* Vertically centers it in the viewport */
-    transform: translateY(-50%); /* Adjusts the positioning for exact centering */
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -951,11 +1087,12 @@ p {
 }
 
 .modal-navigation.next {
-    right: 60px; /* Adjust to the right side of the screen */
+    right: 60px;
 }
 
 .modal-navigation.prev {
-    left: 60px; /* Adjust to the left side of the screen */
+    left: 60px;
+    /* Adjust to the left side of the screen */
 }
 
 .modal-navigation.next,
@@ -1035,6 +1172,8 @@ p {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    height: 100vh;
+    /* or any explicit value like 500px */
     gap: 20px;
     justify-content: center;
 }
@@ -1042,7 +1181,7 @@ p {
 .gallery-item {
     position: absolute;
     text-align: left;
-    width: 350px;
+    width: 25%;
     padding-bottom: 100px;
 }
 
@@ -1054,7 +1193,7 @@ p {
 }
 
 .gallery-item iframe {
-    border-radius: 5px; /* Apply rounded corners specifically to the iframe */
+    border-radius: 5px;
 }
 
 .gallery-item img:hover {
@@ -1089,9 +1228,43 @@ p {
     cursor: pointer;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .gallery {
+        padding: 5%;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .gallery-item {
+        position: static;
+        /* Remove absolute positioning for stacking */
+        width: 90%;
+        /* Adjust width for better responsiveness */
+        text-align: left;
+        padding-bottom: 50px;
+        /* Adjust spacing as needed */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        /* Ensure images take full width of their container */
+    }
+
+    .gallery-item iframe {
+        width: 100%;
+        /* Ensure iframes adjust to the container width */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+}
+
+
 /* about */
 .about-container {
-    padding-top: 18%;
     display: flex;
     flex-wrap: wrap;
     text-align: left;
@@ -1099,6 +1272,9 @@ p {
     margin: 0 auto;
     justify-content: space-between;
     padding-bottom: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .about-text {
@@ -1118,15 +1294,20 @@ p {
 }
 
 .about-image {
-    width: 38%;
+    padding-left: 5%;
+    width: 40%;
     display: flex;
     align-items: center;
+    /* Vertically centers content */
     justify-content: center;
+    /* Horizontally centers content */
 }
 
 .about-image img {
-    width: 100%;
+    max-width: 100%;
+    /* Prevents the image from overflowing the container */
     height: auto;
+    /* Keeps aspect ratio */
     border-radius: 5px;
 }
 
@@ -1143,6 +1324,66 @@ p {
     text-decoration: underline;
 }
 
+@media (max-width: 1024px) {
+    .about-container {
+        width: 80%;
+    }
+
+    .about-text {
+        width: 100%;
+        text-align: left;
+    }
+
+    .about-image {
+        width: 60%;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        width: 100%;
+    }
+
+    .about-text {
+        width: 90%;
+        text-align: left;
+    }
+
+    .about-image {
+        width: 60%;
+        margin-top: 5%;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        width: 100%;
+    }
+
+    .about-text {
+        width: 100%;
+        text-align: left;
+    }
+
+    .about-image {
+        width: 60%;
+        margin-top: 3%;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
 
 
 @keyframes fadeIn {
@@ -1160,5 +1401,4 @@ p {
 
 .fade-in {
     opacity: 0;
-    /* Start hidden */
 }

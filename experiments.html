@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAQ AILEEN - EXPERIMENTS</title>
+    <link
+        href="https://cdn.prod.website-files.com/6570e8a05181277af39c19d5/css/wrights-ferry-mansion.webflow.9e5d54b19.min.css"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- favicon -->
+    <link href="./assets/JA logomark.svg" type="image/x-icon" rel="icon" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left fade-in">
+            <a href="./index.html">Jaq Aileen</a>
+        </div>
+        <button class="mobile-menu-button">☰</button>
+        <div class="nav-center fade-in">
+            <a href="./works.html">Work</a>
+            <a href="./experiments.html">Experiments</a>
+        </div>
+        <div class="nav-right fade-in">
+            <a href="./about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="section fade-in">
+        <h1>Experiments</h1>
+    </div>
+
+    <div class="gallery fade-in">
+        <div class="gallery-item" style="top: 0px; left: 5%;">
+            <img src="./assets/625A8709 copy.jpg" alt="Image 1">
+            <h3>Unconditional</h3>
+            <p>This sculpture piece made from beads and acrylic on plaster draws heavy inspiration from the story of
+                Persephone and Hades. Portraying themes of yearning, seperation and longing. It also reflects nature's
+                cyclical cycle of life and death.</p>
+        </div>
+        <div class="gallery-item" style="top: 52%; left: 35%;">
+            <iframe width="100%" height="220vh" src="https://www.youtube.com/embed/2xWuTE_DVxg?si=XiIcFPhlkVvlw-Gk"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <h3>LOST</h3>
+            <p>LOST is a short film that delves into the fading connection to my Chinese heritage as it diminishes
+                across generations. Featuring a voiceover of prose I wrote, the film intimately explores this theme of
+                cultural loss and identity.</p>
+        </div>
+        <div class="gallery-item" style="top: 25%; left: 75%;">
+            <img src="./assets/jakartapainting copy.jpg" alt="Image 4">
+            <h3>J-TOWN</h3>
+            <p>J-Town is a an acrylic painting that celebrates the dynamic and vibrant culture of Jakarta. Using the
+                layered texture of newspaper as a backdrop, the artwork captures the city's energy, blending elements of
+                urban life, tradition, and modernity by paying homage to the city's rich diversity.</p>
+        </div>
+        <div class="gallery-item fade-in" style="top: 140%; left: 10%;">
+            <img src="./assets/wood copy.jpg" alt="Image 5">
+            <h3>Untitled</h3>
+            <p>Inspired by the art of rock stacking, these handcrafted wooden sculptures balance organic shapes and
+                minimalistic design. Each piece captures the harmony and delicacy of natural formations, emphasizing
+                simplicity, and texture.</p>
+        </div>
+        <div class="gallery-item fade-in" style="top: 155%; left: 70%;">
+            <img src="./assets/bird copy.jpg" alt="Image 3">
+            <h3>Flight</h3>
+            <p>Inspired by my research on Studio 54, this sculpture captures the vibrant lifestyle, bold fashion, and
+                uninhibited freedom that defined the iconic nightclub. It serves as a statement on the power of
+                self-expression and the celebration of individuality.</p>
+        </div>
+        <div class="gallery-item fade-in" style="top: 170%; left: 40%;">
+            <img src="./assets/jakartaposter copy.jpg" alt="Image 6">
+            <h3>Jakarta</h3>
+            <p>Having lived in one of the most densely populated cities in the world, I’ve spent countless hours
+                navigating Jakarta’s bustling streets. This illustrated poster captures the exuberance of
+                the city’s roads, featuring iconic landmarks, diverse modes of transportation, and vibrant street
+                life.</p>
+        </div>
+    </div>
+
+    <div class="gallerypics" id="gallerypics">
+        <span class="gallery-close" id="gallery-close">&times;</span>
+        <img id="gallery-img" src="" alt="">
+    </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.gallery-item img');
+        const modal = document.getElementById('gallerypics'); // Fixed ID reference
+        const modalImg = document.getElementById('gallery-img'); // Fixed ID reference
+        const modalClose = document.getElementById('gallery-close'); // Fixed ID reference
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                modal.style.display = 'flex'; // Display modal
+                modalImg.src = image.src; // Set modal image source
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none'; // Close modal on close button click
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none'; // Close modal when clicking outside the image
+            }
+        });
+
+
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add fade-in class and apply the animation
+                    entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, observerOptions);
+
+        fadeInElements.forEach(element => {
+            observer.observe(element); // Observe each fade-in element
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector("nav");
+            const menuButton = document.querySelector(".mobile-menu-button");
+
+            menuButton.addEventListener("click", () => {
+                nav.classList.toggle("mobile-menu-open");
+            });
+        });
+
+    </script>
+</body>
+
+</html>
