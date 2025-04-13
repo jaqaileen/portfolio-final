@@ -57,6 +57,8 @@ body {
 }
 
 
+
+
 nav {
     display: block;
     visibility: visible;
@@ -103,6 +105,7 @@ nav a:hover {
 }
 
 .mobile-menu-button {
+    color: #232323;
     display: none;
     font-size: 24px;
     cursor: pointer;
@@ -113,8 +116,7 @@ nav a:hover {
 
 @media (max-width: 768px) {
     .nav-right {
-        padding-top: 56px;
-        /* Ensure spacing below `Experiments` */
+        margin-top: 56px;
         z-index: 100;
     }
 
@@ -147,75 +149,66 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 80px;
+    /* justify-content: center;
+    align-items: center; */
+    padding-top: 10%;
 }
 
 .logo-container {
     display: flex;
-    /* Keeps it flexible */
     justify-content: center;
-    /* Centers the content horizontally */
     align-items: center;
-    /* Centers the content vertically */
     text-align: center;
-    /* Centers text within */
     width: 100%;
-    /* Ensures the container takes full width */
     max-width: 100%;
-    /* Prevents overflow */
-    padding: 20px;
-    /* Adds some space around the container */
-    margin: 20px auto;
-    /* Centers the container with automatic margins */
+    margin: 30px auto;
 }
 
 .logo-container img {
     max-width: 100%;
-    /* Ensures the image scales down to fit smaller screens */
     height: auto;
-    /* Maintains the aspect ratio */
-    border-radius: 5px;
-    /* Keeps the rounded edges */
     object-fit: contain;
-    /* Ensures the image doesn't stretch */
 }
 
 @media (max-width: 768px) {
+    main {
+        padding-top: 60px;
+    }
+
     .logo-container {
-        margin-top: 10%;
-        /* Adjusts the spacing for smaller screens */
+        margin-top: 8%;
         margin-bottom: 20px;
-        /* Reduces bottom margin for tighter layouts */
         padding: 10px;
-        /* Reduces padding */
     }
 
     .logo-container img {
         max-width: 55%;
-        /* Reduces the size of the logo for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
+    main {
+        padding-top: 40px;
+        justify-content: top;
+        align-items: top;
+    }
+
     .logo-container {
-        margin-top: 8%;
-        /* Further adjusts top spacing */
-        margin-bottom: 15px;
-        /* Tightens bottom spacing */
+        margin-bottom: 5px;
+        padding: 10px;
     }
 
     .logo-container img {
         max-width: 60%;
-        /* Makes the logo even smaller for tiny screens */
     }
 }
 
 
 .description {
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 40px;
+    width: 95%;
+    padding-left: 3%;
     font-family: tobias, serif;
 }
 
@@ -246,6 +239,7 @@ a:hover {
     vertical-align: middle;
     overflow: hidden;
     position: relative;
+    overflow: hidden;
 }
 
 #branding-slideshow img {
@@ -253,7 +247,12 @@ a:hover {
     transition: opacity 0.5s ease-in-out;
 }
 
-#books-slideshow img {
+#website-slideshow img {
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#prints-slideshow img {
     object-fit: contain;
     transition: opacity 0.5s ease-in-out;
 }
@@ -263,12 +262,12 @@ a:hover {
     height: 65px;
 }
 
-.poster-container {
-    width: 105px;
-    height: 105px;
+.website-container {
+    width: 150px;
+    height: 80px;
 }
 
-.book-container {
+.prints-container {
     width: 90px;
     height: 105px;
 }
@@ -276,23 +275,24 @@ a:hover {
 .image-container img {
     align-items: baseline;
     border-radius: 5px;
-    right: 0px;
-    top: 0px;
+    top: 50%;
+    left: 50%;
     position: absolute;
     width: auto;
     height: 100%;
     object-fit: cover;
+    transform: translate(-50%, -50%);
 }
 
 .branding-container img {
     position: absolute;
 }
 
-.poster-container img {
+.website-container img {
     position: absolute;
 }
 
-.book-container img {
+.prints-container img {
     position: absolute;
 
 }
@@ -305,27 +305,27 @@ a:hover {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .description {
         margin-top: 20px;
         line-height: 60px;
-        font-size: 5.5vw;
+        font-size: 18px;
         font-family: tobias, serif;
     }
 
     .branding-container {
-        width: 104px;
-        height: 54px;
+        width: 80px;
+        height: 41.5px;
     }
 
     .poster-container {
-        width: 87.5px;
-        height: 87.5px;
+        width: 67px;
+        height: 67px;
     }
 
     .book-container {
-        width: 75px;
-        height: 87.5px;
+        width: 58px;
+        height: 67px;
     }
 }
 
@@ -334,32 +334,35 @@ footer {
     text-align: center;
     position: relative;
     /* Enables shifting using top */
-    top: 2%;
+    top: -1%;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 500px) {
+    footer {
+        padding: 20px 0;
+        text-align: center;
+        position: relative;
+        top: -18%;
     }
 }
 
-.contact-footer {
+/* .footer-container {
+    padding-top: 1%;
+    display: flex;
+    padding-left: 5%;
+/* }  */
+
+/* .contact-footer {
     text-align: left;
     font-family: tobias, serif;
     font-size: 18px;
-    line-height: 2;
     margin-bottom: 40px;
     color: #232323;
-}
+    max-width: 40%;
+} */
 
-.contact-footer p {
-    margin: 0 0 0 30px;
+/* .contact-footer p {
+    margin: 0 0 0 0px;
 }
 
 .contact-footer a {
@@ -369,7 +372,43 @@ footer {
 
 .contact-footer a:hover {
     text-decoration: underline;
+} */ 
+
+.footer-container {
+    align-items: right;
+    display: flex;
+    text-align: left;
+    padding-left: 5%;
+    padding-bottom: 5%;
 }
+
+.subtitle {
+    font-family: tobias, serif;
+    font-size: 18px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 650px;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px; /* Prevents columns from collapsing on small screens */
+}
+
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: left;
+        gap: 5%;
+    }
+}
+
 
 /* Add transition styles */
 .swift-up-text {
@@ -385,13 +424,18 @@ footer {
 
 .footer-container {
     position: absolute;
-    right: 10px;
 }
 
 
 /* works */
 .w-layout-hflex {
     flex-direction: row;
+    align-items: flex-start;
+    display: flex
+}
+
+.w-layout-vflex {
+    flex-direction: column;
     align-items: flex-start;
     display: flex
 }
@@ -405,17 +449,7 @@ footer {
     padding-top: 10%
 }
 
-.container {
-    flex-direction: column;
-    flex: 1;
-    align-self: stretch;
-    width: 100vw;
-    max-width: 1440px;
-    display: flex;
-    position: relative;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+
 
 h1 {
     text-align: left;
@@ -429,9 +463,9 @@ h1 {
 h2 {
     text-align: left;
     padding-left: 5%;
+    font-weight: 300;
+    font-family: fraunces-variable, serif;
     padding-top: 10%;
-    font-family: tobias, serif;
-    font-weight: bold;
     font-size: 40px;
     line-height: 1.5;
     color: #232323;
@@ -439,16 +473,11 @@ h2 {
 
 .h2-container {
     width: 65%;
-    /* Default for larger screens */
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     justify-content: flex-start;
-    /* Align items to the left */
     align-items: flex-start;
-    /* Align items vertically at the top-left corner */
     text-align: left;
-    /* Align text inside the container */
     padding-left: 1.5%;
     padding-bottom: 18%;
 }
@@ -512,7 +541,6 @@ h2 {
 
 
 h3 {
-    padding-top: 5%;
     font-family: tobias, serif;
     font-weight: bold;
     font-size: 23px;
@@ -602,7 +630,7 @@ p {
 
 .list-view-collection-cell {
     display: table-cell;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid lightgray;
     padding: 10px 15px;
     text-align: left;
     width: 100%;
@@ -627,7 +655,7 @@ p {
 }
 
 .list-view-collection-cell.first {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid lightgray;
 }
 
 .list-view-index {
@@ -703,13 +731,9 @@ p {
 
 /* tabs */
 
-.collection-control-bar-wrapper {
-    padding-top: var(--padding--main);
-    padding-bottom: 48px
-}
-
 .collection-control-bar {
-    display: flex
+    display: flex;
+    padding-left: 5%;
 }
 
 .control-bar-filters {
@@ -790,13 +814,11 @@ p {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     color: #232323;
-    letter-spacing: -.3px;
     cursor: pointer;
     background-color: transparent;
     flex: none;
     align-items: center;
     padding: 9px 12px;
-
     font-weight: 500;
     line-height: 1;
     display: flex
@@ -895,6 +917,125 @@ p {
     position: relative;
     min-height: 100vh;
     height: auto;
+}
+
+modal-body {
+    cursor: default;
+}
+
+body-scrolled {
+    cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Crect x='0' y='0' width='100' height='40' fill='white' rx='5' ry='5' stroke='black'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='12' fill='black' text-anchor='middle' dominant-baseline='middle'%3ELearn More%3C/text%3E%3C/svg%3E"), auto;
+}
+
+.container {
+    flex-direction: column;
+    flex: 0;
+    align-self: stretch;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex
+}
+
+
+/* General Layout */
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Prompt Section */
+.prompt-container {
+    flex-direction: row;
+    grid-column-gap: 60px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.text-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.image-column {
+    flex: 1;
+    height: auto;
+    text-align: center;
+}
+
+.image-column img{
+    height: auto;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+/* Challenge Section */
+.challenge-container {
+    padding-top: 30%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.challenge-box {
+    border-radius: 10px;
+    padding-top: 25%;
+    border: 1px solid lightgray;
+    padding: 50px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Strategy Section */
+.strategy-container {
+    grid-column-gap: 60px;
+    padding-top: 25%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.strategy-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Solution Section */
+.solution-container {
+    padding-top: 25%;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.image-gallery1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.image-gallery1 img {
+    object-fit: cover;
+}
+
+.gallery-item1 {
+    width: calc(100% - 60px); /* Ensures two items per row with spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -999,6 +1140,8 @@ p {
 .modal-card-more-content {
     width: 100%;
     gap: 60px;
+    flex-direction: column;
+    column-gap: 60px;
 }
 
 /* .modal-card-more-content {
@@ -1043,7 +1186,6 @@ p {
     flex-direction: column;
     align-items: flex-start;
     display: flex;
-    font-family: tobias, serif;
 }
 
 .modal-details-stats-grid {
@@ -1065,7 +1207,8 @@ p {
 }
 
 .modal-title-wrapper {
-    font-family: tobias, serif;
+    font-family: "fraunces-variable", sans-serif;
+    font-variation-settings: "wght" 300;  /* Lightest font weight */
 }
 
 .modal-title {
@@ -1110,11 +1253,11 @@ p {
 }
 
 .modal-pill {
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: 1px solid lightgray;
     border-radius: 100px;
     flex: none;
     padding: 6px 10px;
-    font-family: Ivory, serif;
+    font-family: tobias, serif;
     line-height: 1
 }
 
@@ -1126,11 +1269,11 @@ p {
 }
 
 .modal-details-title {
-    color: #232323;
+    color: rgb(167, 167, 167);
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 900;
-    font-family: tobias, serif;
+    font-weight: 300;
+    font-family: fraunces-variable, serif;
     font-size: 12px;
 }
 
@@ -1271,6 +1414,7 @@ p {
     width: 65%;
     margin: 0 auto;
     justify-content: space-between;
+    padding-top: 5%;
     padding-bottom: 5%;
     flex-direction: row;
     justify-content: center;
@@ -1385,6 +1529,32 @@ p {
     }
 }
 
+.recognition-container {
+    align-items: left;
+    display: flex;
+    text-align: left;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    
+}
+
+.recognition-column,
+.involvement-column {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    width: 90%;
+    gap: 10px; /* Reduce space between elements */
+    flex: 1;
+}
+
+
+/* Responsive: Stacks columns on smaller screens */
+@media (max-width: 768px) {
+    .recognition-container {
+        flex-direction: column;
+        gap: 20px; /* Adjust spacing for mobile */
+    }
+}
 
 @keyframes fadeIn {
     from {

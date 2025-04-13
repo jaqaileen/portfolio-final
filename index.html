@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,118 +32,160 @@
                 is a <em>(New York based)</em> graphic designer
             </span>
             <span>
-                who loves 
+                who loves
                 <div class="image-container branding-container" id="branding-slideshow">
                     <img src="./assets/bumi logo symbol copy.svg" alt="">
                 </div>
-                <a href="./works.html?filter=branding"><strong>branding,</strong></a> <sup>(1)</sup> 
+                <a href="./works.html?filter=branding"><strong>branding,</strong></a> <sup>(1)</sup>
             </span>
             <span>
-                <div class="image-container book-container" id="books-slideshow">
+                <div class="image-container prints-container" id="prints-slideshow">
                     <img src="./assets/book1.jpg" alt="">
                 </div>
-                <a href="./works.html?filter=books"><strong>making books,</strong></a><sup>(2)</sup>
-                and 
-                <div class="image-container poster-container" >
-                    <img src="./assets/microplastics posts copy.png" alt="">
+                <a href="./works.html?filter=prints"><strong>making prints,</strong></a><sup>(2)</sup>
+                and
+                <div class="image-container website-container" id="website-slideshow">
+                    <img src="./assets/in praise of shadows.png" alt="">
                 </div>
-                <a href="./works.html?filter=posters"><strong>posters.</strong></a> <sup>(3)</sup>
-            </span>            
+                <a href="./works.html?filter=website"><strong>websites.</strong></a> <sup>(3)</sup>
+            </span>
         </div>
     </main>
     <footer>
         <div class="footer-container fade-in">
-        <div class="contact-footer fade-in">
-            <p><strong>(Contact)</strong></p>
-            <p>
-                <em>Email:</em><br>
-                <a href="mailto:jaqaileen@gmail.com">jaqaileen@gmail.com</a>
-            </p>
-            <p>
-                <em>Phone:</em><br>
-                <a href="tel:+2137324753">+1 213 732 4753</a>
-            </p>
+            <div class="footer-content fade-in">
+                <div class="footer-column fade-in">
+                    <p>(Currently)</p>
+                    <div class="subtitle">
+                        Jaq Aileen is a junior in 
+                        <a href="https://www.newschool.edu/parsons/"><em>Parsons School of Design</em></a>
+                        studying Communication Design and Creative Entrepreneurship. She is also a Graphic Design intern at
+                        <a href="https://www.proenzaschouler.com/"><em>Proenza Schouler</em></a>
+                        and
+                        <a href="https://www.illuminationpr.com/"><em>Illumination PR</em></a>.
+                    </div>
+                </div>
+                <div class="footer-column fade-in">
+                    <p>(Contact)</p>
+                    <div class="subtitle">
+                        Email:
+                        <a href="mailto:jaqaileen@gmail.com"><em>jaqaileen@gmail.com</em></a>
+                        <br>
+                        Phone:
+                        <a href="tel:+2137324753"><em>+1 213 732 4753</em></a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
         <!-- <span>2024 Jaq Aileen.</span> -->
     </footer>
     <script>
         const fadeInElements = document.querySelectorAll('.fade-in');
-    
+
         const observerOptions = {
-          root: null, // Use the viewport as the root
-          threshold: 0.1 // Trigger when 10% of the element is visible
+            root: null, // Use the viewport as the root
+            threshold: 0.1 // Trigger when 10% of the element is visible
         };
-    
+
         const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Add fade-in class and apply the animation
-              entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
-              observer.unobserve(entry.target); // Stop observing once it's visible
-            }
-          });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add fade-in class and apply the animation
+                    entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
         }, observerOptions);
-    
+
         fadeInElements.forEach(element => {
-          observer.observe(element); // Observe each fade-in element
-        });
-    
-        document.addEventListener("DOMContentLoaded", () => {
-          const burgerMenu = document.querySelector('.burger-menu');
-          const navbarRight = document.querySelector('.navbar-right');
-    
-          burgerMenu.addEventListener('click', () => {
-            navbarRight.classList.toggle('active');
-          });
+            observer.observe(element); // Observe each fade-in element
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-    const brandingContainer = document.getElementById("branding-slideshow");
-    const imagePaths = [
-        "./assets/bumi logo symbol copy.svg",
-        // "./assets/home sweet home logo.png",
-        "./assets/aqura wordmark navy copy.png"
-        // "./assets/The Spring Logo copy.png"
-    ];
-    let currentIndex = 0;
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navbarRight = document.querySelector('.navbar-right');
 
-    // Function to update the image
-    const updateImage = () => {
-        currentIndex = (currentIndex + 1) % imagePaths.length; // Loop through images
-        brandingContainer.innerHTML = `<img src="${imagePaths[currentIndex]}" alt="">`;
-    };
-
-    // Change image every second (1000ms)
-    setInterval(updateImage, 1000);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const brandingContainer = document.getElementById("books-slideshow");
-    const imagePaths = [
-        "./assets/book1.jpg",
-        "./assets/book2.jpg",
-         "./assets/ghibli-cover1 copy.jpg"
-    ];
-    let currentIndex = 0;
-
-    // Function to update the image
-    const updateImage = () => {
-        currentIndex = (currentIndex + 1) % imagePaths.length; // Loop through images
-        brandingContainer.innerHTML = `<img src="${imagePaths[currentIndex]}" alt="">`;
-    };
-
-    // Change image every second (1000ms)
-    setInterval(updateImage, 1000);
-});
-    document.addEventListener("DOMContentLoaded", () => {
-        const nav = document.querySelector("nav");
-        const menuButton = document.querySelector(".mobile-menu-button");
-
-        menuButton.addEventListener("click", () => {
-            nav.classList.toggle("mobile-menu-open");
+            burgerMenu.addEventListener('click', () => {
+                navbarRight.classList.toggle('active');
+            });
         });
-    });
-      </script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const brandingContainer = document.getElementById("branding-slideshow");
+            const imagePaths = [
+                "./assets/bumi logo symbol copy.svg",
+                "./assets/the spring logo copy.png",
+                "./assets/aqura wordmark navy copy.png"
+            ];
+            let currentIndex = 0;
+
+            // Function to update the image
+            const updateImage = () => {
+                currentIndex = (currentIndex + 1) % imagePaths.length; // Loop through images
+                brandingContainer.innerHTML = `<img src="${imagePaths[currentIndex]}" alt="">`;
+            };
+
+            // Change image every second (1000ms)
+            setInterval(updateImage, 1000);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const brandingContainer = document.getElementById("prints-slideshow");
+            const imagePaths = [
+                "./assets/book1.jpg",
+                "./assets/book2.jpg",
+                "./assets/ghibli-cover1 copy.jpg",
+                "./assets/microplastics posts copy.png"
+            ];
+            let currentIndex = 0;
+
+            // Function to update the image
+            const updateImage = () => {
+                currentIndex = (currentIndex + 1) % imagePaths.length; // Loop through images
+                brandingContainer.innerHTML = `<img src="${imagePaths[currentIndex]}" alt="">`;
+            };
+
+            // Change image every second (1000ms)
+            setInterval(updateImage, 1000);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector("nav");
+            const menuButton = document.querySelector(".mobile-menu-button");
+
+            menuButton.addEventListener("click", () => {
+                nav.classList.toggle("mobile-menu-open");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const brandingContainer = document.getElementById("website-slideshow");
+            const imagePaths = [
+                "./assets/in praise of shadows.png",
+                "./assets/minerals.png"
+            ];
+            let currentIndex = 0;
+
+            // Function to update the image
+            const updateImage = () => {
+                currentIndex = (currentIndex + 1) % imagePaths.length; 
+                brandingContainer.innerHTML = `<img src="${imagePaths[currentIndex]}" alt="">`;
+            };
+
+            // Change image every second (1000ms)
+            setInterval(updateImage, 1000);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector("nav");
+            const menuButton = document.querySelector(".mobile-menu-button");
+
+            menuButton.addEventListener("click", () => {
+                nav.classList.toggle("mobile-menu-open");
+            });
+        });
+        
+    </script>
 </body>
+
 </html>
