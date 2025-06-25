@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JAQ AILEEN - IN PRAISE OF SHADOWS</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="./assets/JA logomark.svg" type="image/x-icon" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="nav-wrapper">
+        <div class="nav-buttons">
+            <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
+            <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
+            <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
+            <a class="nav-item contact" href="./about.html"><img src="./assets/contact button.svg" alt="Contact"></a>
+            <a class="nav-item name" href="./"><img src="./assets/logo button.svg" alt="Jaq Aileen"></a>
+        </div>
+    </div>
+
+    <!-- First Section -->
+    <section class="section-one fade-in">
+        <div class="text-container">
+            <h1>IN PRAISE OF SHADOWS</h1>
+            <p>Creative Coding | Web Design <br><br><br>
+                In Praise of Shadows is a desktop-friendly creative coding project inspired by Jun'ichirō Tanizaki's
+                essay of the same name. This work explores the intersection of typography and interaction, using light,
+                motion, and contrast to echo Tanizaki’s meditations on shadow and subtlety. The project features a
+                typographic dialogue between the contemporary sans-serif Buljirya and the classical serif Cardo,
+                inviting users to engage with text in a space shaped by quiet tension and visual play.</p>
+        </div>
+        <img src="./assets/in praise of shadows.png" alt="Project Image">
+    </section>
+
+    <!-- Fifth Section -->
+    <section class="section-five fade-in">
+        <img src="./assets/inpraiseofshadowsss1.png" alt="Project Image">
+        <img src="./assets/inpraiseofshadowsss2.png" alt="Project Image">
+    </section>
+
+    <!-- Sixth Section/Two -->
+    <section class="section-six fade-in">
+        <a class="rectangle-link"
+            href="https://jaqaileen.github.io/interaction2/in%20praise%20of%20shadows/brah/index.html">
+            <h2><strong>Link to Site</strong></h2>
+        </a>
+    </section>
+
+    <!-- Third Section -->
+    <section class="section-three fade-in">
+        <video autoplay loop muted playsinline>
+            <source src="./assets/inpraise.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Fourth Section -->
+    <section class="section-four fade-in">
+        <video autoplay loop muted playsinline>
+            <source src="./assets/in praised cropped vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>At the heart of In Praise of Shadows is a typographic conversation between Buljirya and Cardo. Buljirya’s
+            clean, geometric sans-serif structure contrasts with Cardo’s more traditional, serifed form — yet together,
+            they create a balanced tension that reflects the project’s theme of duality. Through interactive motion and
+            spatial layering, the two typefaces respond to one another, revealing how contrast can also create harmony.
+        </p>
+    </section>
+
+    <footer class="general-footer fade-in">
+        <div class="footer-header">
+            <a class="previous-project" href="./theshapeofwater.html"><h3>Previous Project</h3></a>
+            <a class="next-project" href="./alacart.html"><h3>Next Project</h3></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="./about.html">About</a>
+            <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
+                target="_blank">Resume</a>
+            <a href="mailto:jaqaileen@gmail.com">Email</a>
+        </div>
+        <p style="color: #232323; text-align: right;">Hand-coded by Jaq Aileen in 2025.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navWrapper = document.querySelector('.nav-wrapper');
+    
+            navWrapper.addEventListener('click', function () {
+                if (window.innerWidth <= 768) {
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    
+      const fadeInElements = document.querySelectorAll('.fade-in');
+    
+      const observerOptions = {
+        root: null, // Use the viewport as the root
+        threshold: 0.1 // Trigger when 10% of the element is visible
+      };
+    
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add fade-in class and apply the animation
+            entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+            observer.unobserve(entry.target); // Stop observing once it's visible
+          }
+        });
+      }, observerOptions);
+    
+      fadeInElements.forEach(element => {
+        observer.observe(element); // Observe each fade-in element
+      });
+    
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector("nav");
+        const menuButton = document.querySelector(".mobile-menu-button");
+    
+        menuButton.addEventListener("click", () => {
+          nav.classList.toggle("mobile-menu-open");
+        });
+      });
+    </script>
+
+</body>
+
+
+</html>

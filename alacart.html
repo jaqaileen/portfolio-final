@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JAQ AILEEN - A La Cart</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="./assets/JA logomark.svg" type="image/x-icon" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="nav-wrapper">
+        <div class="nav-buttons">
+          <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
+          <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
+          <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
+          <a class="nav-item contact" href="./about.html"><img src="./assets/contact button.svg" alt="Contact"></a>
+          <a class="nav-item name" href="./"><img src="./assets/logo button.svg" alt="Jaq Aileen"></a>
+        </div>
+      </div>
+    
+    <!-- First Section -->
+    <section class="section-one fade-in">
+        <div class="text-container">
+        <h1>A LA CART</h1>
+        <p>Publication Design | Visual Identity <br><br><br>
+          Food has always been used as a medium to connect people. This book
+          is meant to highlight that New York’s street food vendors play a
+          crucial role in a New Yorker’s daily life whether they notice it or
+          not. By combining photography with articles on history, legalities,
+          and economic impacts, I’m creating a multifaceted narrative that
+          speaks to the significance of street food in NYC. This approach
+          acknowledges street food vendors as essential contributors to the
+          city's cultural and economic landscape.</p>
+        </div>
+            <img src="./assets/A-La-Cart.gif" alt="Project Image">
+      </section>
+
+      <!-- Ninth Section -->
+      <section class="section-nine fade-in">
+        <video autoplay loop muted playsinline>
+          <source src="./assets/Project 2 Motion Topics.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <!-- Fifth Section -->
+      <section class="section-five fade-in">
+        <img src="./assets/A-La-Cart-Spread1.jpg" alt="Project Image">
+        <img src="./assets/A-La-Cart-Spreads2.jpg" alt="Project Image">
+      </section>
+
+      <!-- Eighth Section -->
+      <section class="section-eight fade-in">
+        <img src="./assets/book1.jpg" alt="Project Image">
+        <p>The purpose of this book is meant to capture not just the visuals but
+          also the
+          deeper significance of street food in New York City. By combining my
+          photographs
+          with articles on topics like the history of street food vendors, legal
+          permits,
+          and their economic contributions, I want to create a narrative that
+          speaks to
+          how integral these vendors are to the cultural and economic landscape of
+          the
+          city. Food, to me, is a powerful medium for connection, and through this
+          project, I aim to highlight how New York, as a cultural melting pot, is
+          united
+          by its food.</p>
+      </section>
+
+      <!-- Fifth Section -->
+      <section class="section-five fade-in">
+        <img src="./assets/A-La-Cart-Spreads3.jpg" alt="Project Image">
+        <img src="./assets/A-La-Cart-Spreads4jpg.jpg" alt="Project Image">
+      </section>
+
+      <footer class="general-footer fade-in">
+        <div class="footer-header">
+            <a class="previous-project" href="./inpraiseofshadows.html"><h3>Previous Project</h3></a>
+            <a class="next-project" href="./aqura.html"><h3>Next Project</h3></a>
+        </div>
+
+        <div class="footer-links fade-in">
+            <a href="./about.html">About</a>
+            <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
+                target="_blank">Resume</a>
+            <a href="mailto:jaqaileen@gmail.com">Email</a>
+        </div>
+        <p style="color: #232323; text-align: right;">Hand-coded by Jaq Aileen in 2025.</p>
+    </footer>
+
+    <script>
+      const fadeInElements = document.querySelectorAll('.fade-in');
+  
+      const observerOptions = {
+        root: null, // Use the viewport as the root
+        threshold: 0.1 // Trigger when 10% of the element is visible
+      };
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add fade-in class and apply the animation
+            entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+            observer.unobserve(entry.target); // Stop observing once it's visible
+          }
+        });
+      }, observerOptions);
+  
+      fadeInElements.forEach(element => {
+        observer.observe(element); // Observe each fade-in element
+      });
+  
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector("nav");
+        const menuButton = document.querySelector(".mobile-menu-button");
+  
+        menuButton.addEventListener("click", () => {
+          nav.classList.toggle("mobile-menu-open");
+        });
+      });
+    </script>
+    
+</body>
+</html>

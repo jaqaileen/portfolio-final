@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>JAQ AILEEN - BUMI</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="./style.css">
+  <link href="./assets/JA logomark.svg" type="image/x-icon" rel="icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="nav-wrapper">
+    <div class="nav-buttons">
+      <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
+      <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
+      <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
+      <a class="nav-item contact" href="./about.html"><img src="./assets/contact button.svg" alt="Contact"></a>
+      <a class="nav-item name" href="./"><img src="./assets/logo button.svg" alt="Jaq Aileen"></a>
+    </div>
+  </div>
+
+  <!-- First Section -->
+  <section class="section-one fade-in">
+    <div class="text-container">
+      <h1>BUMI</h1>
+      <p>Publication Design | Brand Identity | Web Design <br><br><br>
+        BUMI Museum is a Natural History and Geology museum in Jakarta, Indonesia. It was founded to bridge the gap
+        between science, art, and cultural heritage, offering visitors a deeper understanding of the geological history
+        of Indonesia. BUMI Museum seeks to inspire a sense of wonder and responsibility toward preserving the earth’s
+        geological treasures for future generations.</p>
+    </div>
+    <img src="./assets/bumi logo.png" alt="Project Image">
+  </section>
+
+  <!-- Second Section -->
+  <section class="section-two fade-in">
+    <div class="rectangle">
+      <p><strong>The Challenge</strong></p>
+      <h2>How do we balance a <strong><em>sense of
+            wonder</em></strong> while staying committed
+        to <strong><em>research and learning?</em></strong></h2>
+    </div>
+  </section>
+
+  <!-- Third Section -->
+  <section class="section-three fade-in">
+    <img src="./assets/kids copy.webp" alt="Project Image">
+  </section>
+
+  <!-- Fourth Section -->
+  <section class="section-four fade-in">
+    <video autoplay loop muted playsinline>
+      <source src="./assets/Bumi Website Screen.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p><strong>The Strategy</strong><br><br>
+      The strategy centers on the concept of "curiosity-driven discovery"—a commitment to pushing the boundaries of
+      geological science while fostering an inclusive, accessible learning environment for all visitors. This vision is
+      encapsulated in the museum’s tagline, “Unearth wonders, Ignite curiosity.”</p>
+  </section>
+
+  <!-- Sixth Section/Two -->
+  <section class="section-six fade-in">
+    <a class="rectangle-link" href="https://jaqaileen.github.io/BUMI-Website/index.html">
+      <h2><strong>Link to Site</strong></h2>
+    </a>
+  </section>
+
+  <!-- Seventh Section -->
+  <section class="section-seven fade-in">
+    <img src="./assets/BUMI Tickets.png" alt="Project Image">
+    <img src="./assets/entrance sign.png" alt="Project Image">
+    <img src="./assets/book2.jpg" alt="Project Image">
+  </section>
+
+  <!-- Fifth Section -->
+  <section class="section-five fade-in">
+    <img src="./assets/identity spread.jpg" alt="Project Image">
+    <img src="./assets/wayfinding spread.jpg" alt="Project Image">
+  </section>
+
+  <footer class="general-footer fade-in">
+    <div class="footer-header">
+        <a class="previous-project" href="./mineralsandgems.html"><h3>Previous Project</h3></a>
+        <a class="next-project" href="./theshapeofwater.html"><h3>Next Project</h3></a>
+    </div>
+
+    <div class="footer-links fade-in">
+        <a href="./about.html">About</a>
+        <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
+            target="_blank">Resume</a>
+        <a href="mailto:jaqaileen@gmail.com">Email</a>
+    </div>
+    <p style="color: #232323; text-align: right;">Hand-coded by Jaq Aileen in 2025.</p>
+</footer>
+
+
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navWrapper = document.querySelector('.nav-wrapper');
+
+    navWrapper.addEventListener('click', function () {
+      if (window.innerWidth <= 768) {
+        this.classList.toggle('active');
+      }
+    });
+  });
+
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+const observerOptions = {
+  root: null, // Use the viewport as the root
+  threshold: 0.1 // Trigger when 10% of the element is visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Add fade-in class and apply the animation
+      entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+      observer.unobserve(entry.target); // Stop observing once it's visible
+    }
+  });
+}, observerOptions);
+
+fadeInElements.forEach(element => {
+  observer.observe(element); // Observe each fade-in element
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("nav");
+  const menuButton = document.querySelector(".mobile-menu-button");
+
+  menuButton.addEventListener("click", () => {
+    nav.classList.toggle("mobile-menu-open");
+  });
+});
+</script>
+
+</html>

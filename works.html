@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>JAQ AILEEN - WORKS</title>
+    <title>JAQ AILEEN - A La Cart</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link
         href="https://cdn.prod.website-files.com/6570e8a05181277af39c19d5/css/wrights-ferry-mansion.webflow.9e5d54b19.min.css"
@@ -17,19 +17,14 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-left fade-in">
-            <a href="./index.html">Jaq Aileen</a>
+    <div class="nav-wrapper">
+        <div class="nav-buttons">
+          <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
+          <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
+          <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
+          <a class="nav-item name" href="./"><img src="./assets/logo button.svg" alt="Jaq Aileen"></a>
         </div>
-        <button class="mobile-menu-button">☰</button>
-        <div class="nav-center fade-in">
-            <a href="./works.html">Work</a>
-            <a href="./experiments.html">Experiments</a>
-        </div>
-        <div class="nav-right fade-in">
-            <a href="./about.html">About</a>
-        </div>
-    </nav>
+      </div>
 
     <div class="section fade-in">
         <h1>Work</h1>
@@ -623,6 +618,7 @@
                                     <source src="./assets/Aqura-Promo.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
+                                
                             </div>
                             <div class="modal-image-wrapper">
                                 <img loading="lazy" alt="BUMI" src="./assets/581A0026.jpg" class="modal-images" />
@@ -1550,7 +1546,6 @@
 
 
         //modal
-
         let activeModal = null;
 
         const modals = document.querySelectorAll(".modal-item");
