@@ -17,11 +17,14 @@
 <body>
   <div class="nav-wrapper">
     <div class="nav-buttons">
-      <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
-      <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
-      <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
-      <a class="nav-item contact" href="./about.html"><img src="./assets/contact button.svg" alt="Contact"></a>
-      <a class="nav-item name" href="./"><img src="./assets/logo button.svg" alt="Jaq Aileen"></a>
+      <div class="nav-item-inner">
+        <a class="nav-item work" href="./work.html"><img src="./assets/work button.svg" alt="Work"></a>
+        <a class="nav-item play" href="./experiments.html"><img src="./assets/play button.svg" alt="Play"></a>
+        <a class="nav-item about" href="./about.html"><img src="./assets/about button.svg" alt="About"></a>
+        <a class="nav-item name" id="logo-button" href="./">
+          <img src="./assets/logo button.svg" alt="Jaq Aileen">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -87,62 +90,97 @@
 
   <footer class="general-footer fade-in">
     <div class="footer-header">
-        <a class="previous-project" href="./mineralsandgems.html"><h3>Previous Project</h3></a>
-        <a class="next-project" href="./theshapeofwater.html"><h3>Next Project</h3></a>
+      <a class="previous-project" href="./mineralsandgems.html">
+        <h3>Previous Project</h3>
+      </a>
+      <a class="next-project" href="./theshapeofwater.html">
+        <h3>Next Project</h3>
+      </a>
     </div>
 
     <div class="footer-links fade-in">
-        <a href="./about.html">About</a>
-        <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
-            target="_blank">Resume</a>
-        <a href="mailto:jaqaileen@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
+        target="_blank">Resume</a>
+      <a href="mailto:jaqaileen@gmail.com">Email</a>
     </div>
     <p style="color: #232323; text-align: right;">Hand-coded by Jaq Aileen in 2025.</p>
-</footer>
+  </footer>
 
-
-</body>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const navWrapper = document.querySelector('.nav-wrapper');
-
-    navWrapper.addEventListener('click', function () {
-      if (window.innerWidth <= 768) {
-        this.classList.toggle('active');
-      }
-    });
-  });
-
-  const fadeInElements = document.querySelectorAll('.fade-in');
+  <script>
+    const fadeInElements = document.querySelectorAll('.fade-in');
 
 const observerOptions = {
-  root: null, // Use the viewport as the root
-  threshold: 0.1 // Trigger when 10% of the element is visible
+    root: null, // Use the viewport as the root
+    threshold: 0.1 // Trigger when 10% of the element is visible
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Add fade-in class and apply the animation
-      entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
-      observer.unobserve(entry.target); // Stop observing once it's visible
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add fade-in class and apply the animation
+            entry.target.style.animation = 'fadeIn 0.8s forwards'; // Duration and settings
+            observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+    });
 }, observerOptions);
 
 fadeInElements.forEach(element => {
-  observer.observe(element); // Observe each fade-in element
+    observer.observe(element); // Observe each fade-in element
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("nav");
-  const menuButton = document.querySelector(".mobile-menu-button");
+    const navWrapper = document.querySelector('.nav-wrapper');
+    const logoButton = document.getElementById('logo-button');
 
-  menuButton.addEventListener("click", () => {
-    nav.classList.toggle("mobile-menu-open");
-  });
+    let hasSpreadOnce = false;
+    let logoClickCount = 0;
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // Initial spread on load
+        navWrapper.classList.add('active');
+        setTimeout(() => {
+            navWrapper.classList.remove('active');
+            hasSpreadOnce = true;
+        }, 2000);
+
+        // Handle logo click for toggle and link navigation
+        logoButton.addEventListener('click', (e) => {
+            if (!navWrapper.classList.contains('active')) {
+                e.preventDefault(); // Prevent default navigation
+                navWrapper.classList.add('active');
+                logoClickCount = 1;
+            } else if (logoClickCount === 1) {
+                // Allow default navigation on second click
+                logoClickCount = 0;
+                // Do not preventDefault here, let it go to ./ (home)
+            }
+        });
+    }
 });
-</script>
+
+logoButton.addEventListener('click', (e) => {
+    if (!logoClickedOnce) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        logoClickedOnce = true;
+        navWrapper.classList.add('active');
+
+        // Auto-collapse after 2 seconds
+        setTimeout(() => {
+            navWrapper.classList.remove('active');
+            logoClickedOnce = false; // reset so next logo click spreads again
+        }, 2000);
+
+    } else {
+        // On the second click, allow navigation
+        logoClickedOnce = false;
+    }
+}, true);
+
+  </script>
+</body>
 
 </html>
