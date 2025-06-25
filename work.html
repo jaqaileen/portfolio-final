@@ -45,7 +45,7 @@
       </div>
       <p>Publication Design | Brand Identity | Web Design</p>
     </a>
-    
+
     <a class="work-item fade-in" href="./theshapeofwater.html">
       <div class="media-container">
         <img src="assets/DSC09735.jpg" alt="Project 2">
@@ -109,18 +109,19 @@
       </div>
       <p>Creative Coding | Web Design</p>
     </a>
-    </div>
+  </div>
 
 
   <footer class="general-footer fade-in">
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/jaq-aileen-283b62296/" target="_blank">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing" target="_blank">Resume</a>
+      <a href="https://drive.google.com/file/d/1PLv5bafMfEgt5Vpy8teJGPh9OSTE5eHr/view?usp=sharing"
+        target="_blank">Resume</a>
       <a href="mailto:jaqaileen@gmail.com">Email</a>
     </div>
     <p style="color: #232323; text-align: right;">Hand-coded by Jaq Aileen in 2025.</p>
   </footer>
-  
+
   <script>
     const fadeInElements = document.querySelectorAll('.fade-in');
 
@@ -144,54 +145,54 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-  const navWrapper = document.querySelector('.nav-wrapper');
-  const logoButton = document.getElementById('logo-button');
-  const isMobile = window.innerWidth <= 768;
+      const navWrapper = document.querySelector('.nav-wrapper');
+      const logoButton = document.getElementById('logo-button');
+      const isMobile = window.innerWidth <= 768;
 
-  let logoClickCount = 0;
+      let logoClickCount = 0;
 
-  if (isMobile) {
-    // Automatically spread buttons on page load for 2 seconds
-    navWrapper.classList.add('active');
-    setTimeout(() => {
-      navWrapper.classList.remove('active');
-    }, 2000);
-
-    // Intercept logo click
-    logoButton.addEventListener('click', function (e) {
-      // If buttons are NOT already spread out
-      if (!navWrapper.classList.contains('active')) {
-        e.preventDefault(); // prevent immediate homepage navigation
+      if (isMobile) {
+        // Automatically spread buttons on page load for 2 seconds
         navWrapper.classList.add('active');
-        logoClickCount = 1;
-      }
-      // If buttons are already spread out AND it's the second click
-      else if (logoClickCount === 1) {
-        // let it proceed to href="./" (homepage)
-        logoClickCount = 0; // reset the click counter
+        setTimeout(() => {
+          navWrapper.classList.remove('active');
+        }, 2000);
+
+        // Intercept logo click
+        logoButton.addEventListener('click', function (e) {
+          // If buttons are NOT already spread out
+          if (!navWrapper.classList.contains('active')) {
+            e.preventDefault(); // prevent immediate homepage navigation
+            navWrapper.classList.add('active');
+            logoClickCount = 1;
+          }
+          // If buttons are already spread out AND it's the second click
+          else if (logoClickCount === 1) {
+            // let it proceed to href="./" (homepage)
+            logoClickCount = 0; // reset the click counter
+          }
+        });
       }
     });
-  }
-});
 
-logoButton.addEventListener('click', (e) => {
-  if (!logoClickedOnce) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    logoClickedOnce = true;
-    navWrapper.classList.add('active');
+    logoButton.addEventListener('click', (e) => {
+      if (!logoClickedOnce) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        logoClickedOnce = true;
+        navWrapper.classList.add('active');
 
-    // Auto-collapse after 2 seconds
-    setTimeout(() => {
-      navWrapper.classList.remove('active');
-      logoClickedOnce = false; // reset so next logo click spreads again
-    }, 2000);
+        // Auto-collapse after 2 seconds
+        setTimeout(() => {
+          navWrapper.classList.remove('active');
+          logoClickedOnce = false; // reset so next logo click spreads again
+        }, 2000);
 
-  } else {
-    // On the second click, allow navigation
-    logoClickedOnce = false;
-  }
-}, true);
+      } else {
+        // On the second click, allow navigation
+        logoClickedOnce = false;
+      }
+    }, true);
 
   </script>
 </body>
